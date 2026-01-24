@@ -8,21 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff2a6d;
-            --primary-dark: #d10047;
-            --secondary: #05d9e8;
-            --accent: #d300c5;
-            --dark: #0c0c14;
-            --darker: #08080f;
-            --light: #f0f0f5;
-            --gray: #a0a0b0;
+            --primary: #00c6ff;
+            --primary-dark: #0072ff;
+            --secondary: #00c6ff;
+            --accent: #0072ff;
+            --dark: #0f2027;
+            --darker: #000428;
+            --light: #ffffff;
+            --gray: #bdc3c7;
+            --card-bg: rgba(15, 32, 39, 0.85);
             --gradient: linear-gradient(135deg, var(--primary), var(--accent));
             --gradient-text: linear-gradient(135deg, var(--primary), var(--secondary));
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            --shadow: 0 10px 30px rgba(211, 0, 197, 0.15);
-            --shadow-lg: 0 20px 50px rgba(211, 0, 197, 0.25);
-            --radius: 16px;
-            --radius-sm: 8px;
+            --shadow: 0 10px 30px rgba(0, 114, 255, 0.2);
+            --shadow-lg: 0 20px 50px rgba(0, 114, 255, 0.3);
+            --radius: 12px;
+            --radius-sm: 6px;
         }
 
         * {
@@ -33,10 +34,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--darker);
+            background: linear-gradient(135deg, var(--darker), var(--dark));
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            background-attachment: fixed;
         }
 
         body::-webkit-scrollbar {
@@ -63,7 +65,20 @@
         }
 
         img {
-            display: none; /* Hide all images */
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 42, 109, 0.3);
+            margin: 0 auto 20px;
+            display: block;
         }
 
         .container {
@@ -178,14 +193,14 @@
             padding: 20px 0;
             transition: var(--transition);
             backdrop-filter: blur(10px);
-            background: rgba(12, 12, 20, 0.9);
-            border-bottom: 1px solid rgba(255, 42, 109, 0.1);
+            background: rgba(15, 32, 39, 0.9);
+            border-bottom: 1px solid rgba(0, 114, 255, 0.1);
         }
 
         header.scrolled {
             padding: 15px 0;
-            background: rgba(8, 8, 15, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(15, 32, 39, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 114, 255, 0.3);
         }
 
         .navbar {
@@ -249,6 +264,23 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
+            background: url('./assets/images/developer-workspace.jpg') center/cover;
+            background-attachment: fixed;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 32, 39, 0.85), rgba(0, 4, 40, 0.85));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content {
@@ -262,6 +294,11 @@
             position: relative;
             z-index: 2;
         }
+        
+        .hero-profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
         .hero-text h1 {
             font-size: 3.5rem;
@@ -272,6 +309,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
+        .hero-text h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
 
         .hero-text h2 {
             font-size: 1.8rem;
@@ -281,7 +324,7 @@
 
         .hero-text p {
             font-size: 1.1rem;
-            color: var(--gray);
+            color: var(--light);
             margin-bottom: 30px;
             max-width: 600px;
             margin-left: auto;
@@ -451,9 +494,9 @@
             text-align: center;
             padding: 25px;
             border-radius: var(--radius-sm);
-            background: rgba(255, 42, 109, 0.05);
+            background: rgba(0, 198, 255, 0.05);
             transition: var(--transition);
-            border: 1px solid rgba(255, 42, 109, 0.1);
+            border: 1px solid rgba(0, 198, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -502,8 +545,8 @@
         }
 
         .skill-category {
-            background: rgba(12, 12, 20, 0.7);
-            border: 1px solid rgba(255, 42, 109, 0.1);
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 198, 255, 0.1);
             border-radius: var(--radius);
             padding: 30px;
             transition: var(--transition);
@@ -555,13 +598,13 @@
         }
 
         .skill-tag {
-            background: rgba(255, 42, 109, 0.1);
+            background: rgba(0, 198, 255, 0.1);
             color: var(--light);
             padding: 8px 16px;
             border-radius: 30px;
             font-size: 0.9rem;
             transition: var(--transition);
-            border: 1px solid rgba(255, 42, 109, 0.2);
+            border: 1px solid rgba(0, 198, 255, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -636,8 +679,8 @@
         }
 
         .timeline-content {
-            background: rgba(12, 12, 20, 0.7);
-            border: 1px solid rgba(255, 42, 109, 0.1);
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 198, 255, 0.1);
             border-radius: var(--radius);
             padding: 30px;
             transition: var(--transition);
@@ -706,8 +749,8 @@
         }
 
         .project-card {
-            background: rgba(12, 12, 20, 0.7);
-            border: 1px solid rgba(255, 42, 109, 0.1);
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 198, 255, 0.1);
             border-radius: var(--radius);
             overflow: hidden;
             transition: var(--transition);
@@ -793,7 +836,7 @@
         }
 
         .tag {
-            background: rgba(255, 42, 109, 0.1);
+            background: rgba(0, 198, 255, 0.1);
             color: var(--primary);
             padding: 5px 10px;
             border-radius: 30px;
@@ -827,9 +870,9 @@
             display: flex;
             gap: 15px;
             padding: 20px;
-            background: rgba(12, 12, 20, 0.7);
+            background: var(--card-bg);
             border-radius: var(--radius-sm);
-            border: 1px solid rgba(255, 42, 109, 0.1);
+            border: 1px solid rgba(0, 198, 255, 0.1);
             transition: var(--transition);
         }
 
@@ -882,8 +925,8 @@
             width: 100%;
             padding: 15px;
             border-radius: var(--radius-sm);
-            background: rgba(12, 12, 20, 0.7);
-            border: 1px solid rgba(255, 42, 109, 0.1);
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 198, 255, 0.1);
             color: var(--light);
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
@@ -904,9 +947,9 @@
 
         /* Footer */
         footer {
-            background: var(--dark);
+            background: var(--card-bg);
             padding: 50px 0 20px;
-            border-top: 1px solid rgba(255, 42, 109, 0.1);
+            border-top: 1px solid rgba(0, 198, 255, 0.1);
         }
 
         .footer-content {
@@ -942,7 +985,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 42, 109, 0.1);
+            background: rgba(0, 198, 255, 0.1);
             color: var(--light);
             transition: var(--transition);
         }
@@ -1000,6 +1043,57 @@
             font-size: 0.9rem;
         }
 
+        /* Technology Background */
+        .tech-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            background: linear-gradient(135deg, #000428, #004e92);
+        }
+        
+        .tech-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('./assets/images/coding-background.jpg') center/cover;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+        }
+        
+        .binary-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.15;
+        }
+        
+        .code-line {
+            position: absolute;
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            white-space: nowrap;
+            animation: scrollBinary 60s linear infinite;
+        }
+        
+        .code-line:nth-child(1) { top: 10%; animation-delay: 0s; }
+        .code-line:nth-child(2) { top: 30%; animation-delay: 20s; }
+        .code-line:nth-child(3) { top: 50%; animation-delay: 40s; }
+        
+        @keyframes scrollBinary {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100%); }
+        }
+        
         /* Section Entry Animations */
         .section {
             opacity: 0;
@@ -1104,15 +1198,14 @@
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="grid-overlay"></div>
-        <div class="pulse-rings">
-            <div class="pulse-ring"></div>
-            <div class="pulse-ring"></div>
-            <div class="pulse-ring"></div>
+    <!-- Technology Background -->
+    <div class="tech-bg">
+        <div class="tech-overlay"></div>
+        <div class="binary-code">
+            <div class="code-line">01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100</div>
+            <div class="code-line">01001001 00100000 01100001 01101101 00100000 01000001 01100100 01101001 01110100 01101000 01111001 01100001</div>
+            <div class="code-line">01010000 01111001 01110100 01101000 01101111 01101110 00100000 01000110 01110101 01101100 01101100 01110011 01110100 01100001 01100011 01101011 00100000 01000100 01100101 01110110 01100101 01101100 01101111 01110000 01100101 01110010</div>
         </div>
-        <div class="particles" id="particles"></div>
     </div>
 
     <!-- Header -->
@@ -1137,12 +1230,16 @@
 
     <!-- Hero Section -->
     <section class="hero section" id="home">
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
+                <div class="hero-profile">
+                    <img src="./assets/images/profile-tech.jpg" alt="Adithya Nair" class="profile-img">
+                </div>
                 <div class="hero-text">
                     <h1>Hi, I'm Adithya Nair</h1>
-                    <h2>Python Fullstack Developer</h2>
-                    <p>I build scalable web applications and innovative solutions using Python, Django, Flask, and modern frontend technologies. Passionate about creating efficient, maintainable code and exceptional user experiences.</p>
+                    <h3>Python Fullstack Developer</h3>
+                    <p>Junior Python Full Stack Developer with a Bachelor's in Computer Applications and 1 year of hands-on experience building and deploying web applications using Python, Django/Flask, HTML, CSS, and JavaScript. Passionate about solving real-world problems, learning continuously, and creating clean, user-friendly digital experiences.</p>
                     <div class="hero-btns">
                         <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-briefcase"></i> View Projects
@@ -1151,9 +1248,6 @@
                             <i class="fas fa-envelope"></i> Get In Touch
                         </a>
                     </div>
-                </div>
-                <div class="hero-placeholder">
-                    <!-- Placeholder for image - hidden -->
                 </div>
             </div>
         </div>
@@ -1177,12 +1271,34 @@
                             <p>Year Experience</p>
                         </div>
                         <div class="stat-item">
-                            <h4>5</h4>
+                            <h4>5+</h4>
                             <p>Projects Done</p>
                         </div>
                         <div class="stat-item">
                             <h4>3+</h4>
                             <p>Clients Satisfied</p>
+                        </div>
+                    </div>
+                    
+                    <div class="education">
+                        <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 20px;">Education</h3>
+                        <div class="timeline" style="max-width: 100%; margin: 0;">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Bachelor of Computer Applications</h3>
+                                    <div class="date">ILM College of Arts and Science, Methala, Perumbavoor • 2021-2024</div>
+                                    <p>Completed Bachelor's degree in Computer Applications with focus on software development, databases, and system analysis.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Python Full Stack Development Course</h3>
+                                    <div class="date">Luminar Technolab, Kakkanad • May 2024 - Dec 2024</div>
+                                    <p>Comprehensive training in Python, Django, Flask, HTML, CSS, JavaScript, and deployment techniques.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1191,7 +1307,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section" id="skills" style="background: rgba(12, 12, 20, 0.7);">
+    <section class="section" id="skills">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">My Skills</h2>
@@ -1199,13 +1315,23 @@
             </div>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3><i class="fab fa-python"></i> Backend Development</h3>
+                    <h3><i class="fas fa-server"></i> Backend & Programming</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Django</span>
                         <span class="skill-tag">Flask</span>
                         <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">RESTful API Development</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">React.js</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -1213,25 +1339,22 @@
                     <div class="skill-tags">
                         <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">SQLite</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                    <h3><i class="fas fa-cloud"></i> DevOps & Hosting</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">AWS (Basics)</span>
+                        <span class="skill-tag">VPS Hosting</span>
+                        <span class="skill-tag">Deployment</span>
+                        <span class="skill-tag">Server Management</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Git/GitHub</span>
-                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Git & GitHub</span>
                         <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Linux</span>
                     </div>
                 </div>
             </div>
@@ -1267,7 +1390,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="section" id="projects" style="background: rgba(12, 12, 20, 0.7);">
+    <section class="section" id="projects">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Featured Projects</h2>
@@ -1275,45 +1398,45 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #ff2a6d, #d300c5);">
-                        <i class="fas fa-comments"></i>
+                    <div class="project-image" style="background: linear-gradient(135deg, #00c6ff, #0072ff);">
+                        <i class="fas fa-qrcode"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Ringme: Virtual Communication App</h3>
+                        <h3>Ringme (QR-based Communication App)</h3>
                         <div class="company">Crudops Pvt Ltd</div>
-                        <p>Developed the admin panel with Flask, built mobile-app APIs, implemented WebRTC signaling for audio/video/messaging via QR-code scanning.</p>
+                        <p>Built Flask-based admin panel and RESTful APIs for user, package, and feature management. Implemented signaling logic for audio, video, and chat communication via QR-based access.</p>
                         <div class="project-tags">
                             <span class="tag">Flask</span>
+                            <span class="tag">RESTful API</span>
                             <span class="tag">WebRTC</span>
-                            <span class="tag">API</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #d300c5, #05d9e8);">
+                    <div class="project-image" style="background: linear-gradient(135deg, #0072ff, #00c6ff);">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Pickframes: Frame Shopping Platform</h3>
+                        <h3>Pickframes (E-commerce Platform – Dubai Client)</h3>
                         <div class="company">Crudops Pvt Ltd</div>
-                        <p>Designed UI, built full e-commerce flow (image upload, frame customization, checkout, payment) with Flask + admin panel.</p>
+                        <p>Developed full-stack e-commerce website with image customization features and responsive UI using Flask, HTML, CSS, and JavaScript. Implemented checkout flow, payment integration, and admin dashboard for managing products and users.</p>
                         <div class="project-tags">
                             <span class="tag">E-commerce</span>
                             <span class="tag">Flask</span>
-                            <span class="tag">UI/UX</span>
+                            <span class="tag">Responsive UI</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #05d9e8, #ff2a6d);">
+                    <div class="project-image" style="background: linear-gradient(135deg, #00c6ff, #0072ff);">
                         <i class="fas fa-gem"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Spinale Aurora: Jewelry Stone Shopping</h3>
+                        <h3>Spinel Aurora (Jewelry E-commerce App)</h3>
                         <div class="company">Crudops Pvt Ltd</div>
-                        <p>Full-stack Flask + MySQL e-commerce, UI/UX, backend APIs, AWS hosting for scalable performance.</p>
+                        <p>Designed and deployed full e-commerce platform using Flask and MySQL with AWS cloud hosting. Handled backend APIs, database design, and optimized overall application performance.</p>
                         <div class="project-tags">
                             <span class="tag">E-commerce</span>
                             <span class="tag">Flask</span>
@@ -1323,33 +1446,49 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #ff8c00, #ff2a6d);">
+                    <div class="project-image" style="background: linear-gradient(135deg, #00c6ff, #0072ff);">
                         <i class="fas fa-blog"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Picks: Blog App</h3>
+                        <h3>Picks (Blog App Backend)</h3>
                         <div class="company">Crudops Pvt Ltd</div>
-                        <p>Developed and deployed "Picks" backend API for mobile blog app using Python Flask.</p>
+                        <p>Built REST APIs using Flask for mobile blog application including authentication and content management.</p>
                         <div class="project-tags">
                             <span class="tag">Flask</span>
-                            <span class="tag">API</span>
-                            <span class="tag">Mobile</span>
+                            <span class="tag">REST API</span>
+                            <span class="tag">Authentication</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #d300c5, #05d9e8);">
-                        <i class="fas fa-building"></i>
+                    <div class="project-image" style="background: linear-gradient(135deg, #0072ff, #00c6ff);">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Offer Showing App</h3>
+                        <h3>Offer Management App (Flutter + FastAPI)</h3>
                         <div class="company">Crudops Pvt Ltd</div>
-                        <p>Built FastAPI backend for mobile app with real-time property offer tracking. Created admin panel frontend and deployed the application for client use.</p>
+                        <p>Developed FastAPI backend and web-based admin panel to manage company subscriptions, offers, and user access. Implemented real-time offer updates to improve visibility and engagement.</p>
                         <div class="project-tags">
                             <span class="tag">FastAPI</span>
                             <span class="tag">Admin Panel</span>
-                            <span class="tag">Deployment</span>
+                            <span class="tag">Real-time Updates</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #00c6ff, #0072ff);">
+                        <i class="fas fa-mobile"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>TCR App (Flutter + Firebase)</h3>
+                        <div class="company">Crudops Pvt Ltd</div>
+                        <p>Developed Streamlit-based admin panel connected with Firebase for real-time data updates and management.</p>
+                        <div class="project-tags">
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Real-time Data</span>
                         </div>
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
@@ -1432,6 +1571,7 @@
                 <div class="footer-about">
                     <h3>Adithya Nair</h3>
                     <p>Passionate Python developer dedicated to creating efficient, scalable, and innovative web solutions that make a difference.</p>
+                    <p><strong>Languages:</strong> Malayalam (Native), English (Professional)</p>
                     <div class="social-links">
                         <a href="mailto:adithyanair2002324@gmail.com"><i class="fas fa-envelope"></i></a>
                         <a href="https://linkedin.com/in/adithya-nair-24-" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -1461,12 +1601,27 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Adithya Nair. All Rights Reserved.</p>
+                <p>&copy; 2026 Adithya Nair. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Profile image fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.querySelector('.profile-img');
+            profileImg.onerror = function() {
+                // If image fails to load, show initials in a colored circle
+                this.style.background = 'linear-gradient(135deg, var(--primary), var(--accent))';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+                this.style.fontSize = '60px';
+                this.style.color = 'white';
+                this.textContent = 'AN';
+            };
+        });
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
@@ -1518,29 +1673,6 @@
 
         // Create animated particles
         document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 40;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size
-                const size = Math.random() * 80 + 20;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation delay and duration
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-            
             // Section entry animations
             const sections = document.querySelectorAll('.section');
             

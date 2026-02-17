@@ -33,19 +33,14 @@ export class GeminiService {
    */
   async generateResponse(prompt: string) {
     try {
-      // Create a new GoogleGenAI instance right before making an API call to ensure it always uses the latest state.
+      // Get API key from environment variables
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
-      // DEBUG: Check environment variables (remove after debugging)
-      console.log("🔍 DEBUG - ENV FULL:", import.meta.env);
-      console.log("🔍 DEBUG - ENV KEY:", apiKey);
-      console.log("🔍 DEBUG - TYPE:", typeof apiKey);
-      console.log("🔍 DEBUG - LENGTH:", apiKey?.length);
-
       if (!apiKey) {
-        console.error('❌ Gemini API key not found. Please set VITE_GEMINI_API_KEY in .env file');
-        return "API key is not configured. Please contact the site administrator.";
+        console.error('Gemini API key not configured');
+        return "I'm currently unable to respond. Please ensure the API key is configured.";
       }
+
       const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',

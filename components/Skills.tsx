@@ -65,13 +65,17 @@ const SkillItem = ({ name, icon }: { name: string; icon: string }) => (
   >
     <div className="flex items-center justify-between group/item">
       <div className="flex items-center gap-2.5">
-        <i className={`${icon} text-slate-500 group-hover:text-cyan-400 text-sm transition-colors w-4 text-center`}></i>
-        <span className="text-xs font-bold text-slate-400 group-hover:text-white transition-colors">{name}</span>
-      </div>
-      <div className="flex gap-0.5">
-        {[1, 2, 3, 4].map(i => (
-          <div key={i} className={`h-1 w-2.5 rounded-full ${i <= 3 ? 'bg-cyan-500/40 shadow-[0_0_5px_rgba(34,211,238,0.3)]' : 'bg-white/5'}`}></div>
-        ))}
+        <i className={`${icon} text-slate-500 group-hover:text-emerald-400 text-sm transition-colors w-4 text-center`}></i>
+        <div className="flex-1 space-y-2">
+          <div className="flex justify-between items-center">
+            <span className="text-xs font-bold text-slate-400 group-hover:text-white transition-colors">{name}</span>
+            <div className="flex gap-1">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className={`h-1 w-2.5 rounded-full ${i <= 3 ? 'bg-emerald-500/40 shadow-[0_0_5px_rgba(16,185,129,0.3)]' : 'bg-white/5'}`}></div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </motion.div>
@@ -79,8 +83,8 @@ const SkillItem = ({ name, icon }: { name: string; icon: string }) => (
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-[#010409]">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-cyan-500/[0.03] pointer-events-none"></div>
+    <section id="skills" className="relative py-32 overflow-hidden bg-[#09090b]">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-emerald-500/[0.03] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center space-y-4 mb-16">
@@ -88,7 +92,7 @@ const Skills: React.FC = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em]"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-[0.3em]"
           >
             Capabilities
           </motion.div>
@@ -102,10 +106,10 @@ const Skills: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Backend */}
-          <SkillCard 
-            title="Backend" 
-            icon="fa-code" 
-            color="text-cyan-400" 
+          <SkillCard
+            title="Backend"
+            icon="fa-code"
+            color="text-emerald-400"
           >
             <div className="space-y-4">
               {SKILLS.filter(s => s.category === 'Backend').map(skill => (
@@ -114,18 +118,18 @@ const Skills: React.FC = () => {
               <div className="pt-4 mt-2 border-t border-white/5 flex items-center justify-between">
                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Core Focus</span>
                 <div className="flex gap-1.5">
-                   <i className="fa-brands fa-python text-cyan-500 text-xs"></i>
-                   <i className="fa-solid fa-bolt text-cyan-400 text-xs"></i>
+                  <i className="fa-brands fa-python text-emerald-500 text-xs"></i>
+                  <i className="fa-solid fa-bolt text-emerald-400 text-xs"></i>
                 </div>
               </div>
             </div>
           </SkillCard>
 
           {/* Frontend */}
-          <SkillCard 
-            title="Frontend" 
-            icon="fa-layer-group" 
-            color="text-blue-400" 
+          <SkillCard
+            title="Frontend"
+            icon="fa-layer-group"
+            color="text-emerald-400"
           >
             <div className="space-y-4">
               {SKILLS.filter(s => s.category === 'Frontend').map(skill => (
@@ -135,10 +139,10 @@ const Skills: React.FC = () => {
           </SkillCard>
 
           {/* Data */}
-          <SkillCard 
-            title="Data" 
-            icon="fa-database" 
-            color="text-indigo-400" 
+          <SkillCard
+            title="Data"
+            icon="fa-database"
+            color="text-emerald-400"
           >
             <div className="space-y-4">
               {SKILLS.filter(s => s.category === 'Databases').map(skill => (
@@ -148,10 +152,10 @@ const Skills: React.FC = () => {
           </SkillCard>
 
           {/* DevOps */}
-          <SkillCard 
-            title="DevOps" 
-            icon="fa-cloud" 
-            color="text-purple-400" 
+          <SkillCard
+            title="DevOps"
+            icon="fa-cloud"
+            color="text-emerald-400"
           >
             <div className="grid grid-cols-1 gap-4">
               {SKILLS.filter(s => s.category === 'DevOps').map(skill => (
@@ -161,10 +165,10 @@ const Skills: React.FC = () => {
           </SkillCard>
 
           {/* Tools */}
-          <SkillCard 
-            title="Tools" 
-            icon="fa-tools" 
-            color="text-emerald-400" 
+          <SkillCard
+            title="Tools"
+            icon="fa-tools"
+            color="text-emerald-400"
           >
             <div className="space-y-4">
               {SKILLS.filter(s => s.category === 'Tools').map(skill => (
@@ -174,19 +178,19 @@ const Skills: React.FC = () => {
           </SkillCard>
 
           {/* Languages */}
-          <SkillCard 
-            title="Communication" 
-            icon="fa-language" 
-            color="text-orange-400" 
+          <SkillCard
+            title="Communication"
+            icon="fa-language"
+            color="text-emerald-400"
           >
             <div className="space-y-6 flex flex-col justify-center h-full pb-4">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-bold text-slate-300">English</span>
-                <span className="text-[10px] font-bold text-orange-400/70 uppercase">Professional</span>
+                <span className="text-[10px] font-bold text-emerald-400/70 uppercase">Professional</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm font-bold text-slate-300">Malayalam</span>
-                <span className="text-[10px] font-bold text-orange-400/70 uppercase">Native</span>
+                <span className="text-[10px] font-bold text-emerald-400/70 uppercase">Native</span>
               </div>
             </div>
           </SkillCard>

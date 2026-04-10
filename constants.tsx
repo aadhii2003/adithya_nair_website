@@ -9,7 +9,7 @@ export const PROJECTS: Project[] = [
     description: 'QR-based Communication App. Built Flask-based admin panel and RESTful APIs for user, package, and feature management. Implemented signaling logic for audio, video, and chat communication via QR-based access.',
     tags: ['Flask', 'REST API', 'WebRTC', 'QR Tech'],
     icon: 'fa-qrcode',
-    color: 'from-cyan-500 to-blue-600'
+    color: 'from-emerald-500 to-teal-600'
   },
   {
     id: 'pickframes',
@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
     description: 'E-commerce Platform. Developed full-stack ecommerce website with image customization features and responsive UI. Implemented checkout flow, payment integration, and admin dashboard.',
     tags: ['Flask', 'HTML5', 'CSS3', 'JS', 'E-commerce'],
     icon: 'fa-shopping-cart',
-    color: 'from-blue-600 to-indigo-600'
+    color: 'from-teal-500 to-emerald-700'
   },
   {
     id: 'spinel',
@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
     description: 'Jewelry E-commerce App. Designed and deployed full platform using Flask and MySQL with AWS cloud hosting. Handled backend APIs and optimized performance.',
     tags: ['Flask', 'MySQL', 'AWS', 'Optimization'],
     icon: 'fa-gem',
-    color: 'from-purple-600 to-indigo-600'
+    color: 'from-emerald-600 to-green-700'
   },
   {
     id: 'picks',
@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     description: 'Blog App Backend. Built REST APIs using Flask for mobile blog application including authentication and content management.',
     tags: ['Flask', 'RESTful API', 'Auth'],
     icon: 'fa-blog',
-    color: 'from-orange-500 to-red-600'
+    color: 'from-green-500 to-emerald-600'
   },
   {
     id: 'tcr',
@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     description: 'Flutter + Firebase. Developed Streamlit-based admin panel connected with Firebase for real-time data updates and management.',
     tags: ['Streamlit', 'Firebase', 'Flutter Integration'],
     icon: 'fa-mobile-alt',
-    color: 'from-blue-400 to-cyan-500'
+    color: 'from-teal-400 to-emerald-500'
   },
   {
     id: 'offer-app',

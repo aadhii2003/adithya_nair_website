@@ -46,7 +46,7 @@ const ChatBot: React.FC = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="mb-6 w-80 md:w-[400px] glass rounded-3xl shadow-2xl overflow-hidden border border-cyan-500/20 flex flex-col h-[550px]"
+            className="mb-6 w-80 md:w-[400px] glass rounded-3xl shadow-2xl overflow-hidden border border-emerald-500/20 flex flex-col h-[550px]"
           >
             {/* Header */}
             <div className="p-6 bg-gradient-primary flex items-center justify-between text-white">
@@ -57,7 +57,7 @@ const ChatBot: React.FC = () => {
                 <div>
                   <div className="font-bold text-sm tracking-tight">Adithya AI</div>
                   <div className="flex items-center gap-1.5 text-[10px] opacity-80 uppercase tracking-widest font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     Operational
                   </div>
                 </div>
@@ -84,7 +84,7 @@ const ChatBot: React.FC = () => {
                 >
                   <div className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed ${
                     msg.role === 'user' 
-                      ? 'bg-indigo-600 text-white rounded-tr-none shadow-lg' 
+                      ? 'bg-emerald-600 text-white rounded-tr-none shadow-lg' 
                       : 'glass text-slate-200 rounded-tl-none border-white/10'
                   }`}>
                     {msg.text}
@@ -95,9 +95,9 @@ const ChatBot: React.FC = () => {
                 <div className="flex justify-start">
                   <div className="glass p-4 rounded-2xl rounded-tl-none border border-white/10">
                     <div className="flex gap-1.5">
-                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full animate-bounce"></div>
-                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full animate-bounce delay-150"></div>
-                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full animate-bounce delay-300"></div>
+                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce delay-150"></div>
+                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce delay-300"></div>
                     </div>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ const ChatBot: React.FC = () => {
                   <button 
                     key={s}
                     onClick={() => handleSendMessage(s)}
-                    className="text-[10px] bg-white/5 hover:bg-white/10 text-cyan-400 px-3 py-1.5 rounded-full border border-white/5 transition-colors"
+                    className="text-[10px] bg-white/5 hover:bg-white/10 text-emerald-400 px-3 py-1.5 rounded-full border border-white/5 transition-colors"
                   >
                     {s}
                   </button>
@@ -130,7 +130,7 @@ const ChatBot: React.FC = () => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type a message..."
-                  className="w-full bg-slate-800/50 border border-white/10 rounded-2xl pl-5 pr-14 py-4 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/50 transition-all"
+                  className="w-full bg-[#121217]/50 border border-white/10 rounded-2xl pl-5 pr-14 py-4 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500/50 transition-all"
                 />
                 <button 
                   type="submit" 
@@ -149,7 +149,7 @@ const ChatBot: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="w-16 h-16 bg-gradient-primary rounded-2xl shadow-2xl shadow-cyan-500/30 flex items-center justify-center text-white text-2xl relative overflow-hidden group"
+        className="w-16 h-16 bg-gradient-primary rounded-2xl shadow-2xl shadow-emerald-500/30 flex items-center justify-center text-white text-2xl relative overflow-hidden group"
       >
         <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
         <i className={`fas ${isOpen ? 'fa-times' : 'fa-brain'} relative z-10`}></i>

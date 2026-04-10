@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion, Variants } from 'framer-motion';
 import Logo from './Logo';
 
@@ -46,7 +47,7 @@ const Hero: React.FC = () => {
             y: [0, -30, 0]
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px]"
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px]"
         />
         <motion.div 
           animate={{ 
@@ -55,7 +56,7 @@ const Hero: React.FC = () => {
             y: [0, 40, 0]
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[140px]"
+          className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[140px]"
         />
       </div>
 
@@ -66,8 +67,8 @@ const Hero: React.FC = () => {
           animate="visible"
           className="text-center lg:text-left space-y-10"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-cyan-500/20 text-cyan-400 text-xs font-black tracking-widest uppercase">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-emerald-500/20 text-emerald-400 text-xs font-black tracking-widest uppercase">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
             Python Fullstack Developer
           </motion.div>
           
@@ -80,27 +81,28 @@ const Hero: React.FC = () => {
           </div>
           
           <motion.p variants={itemVariants} className="text-slate-400 text-lg md:text-xl max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
-            Crafting scalable architectures and immersive interfaces. I turn complex logic into <span className="text-white font-medium border-b border-cyan-500/30">seamless digital reality</span>.
+            Crafting scalable architectures and immersive interfaces. I turn complex logic into <span className="text-white font-medium border-b border-emerald-500/30">seamless digital reality</span>.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start pt-4">
-            <motion.a 
-              href="#projects" 
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-gradient-primary text-white font-extrabold rounded-2xl transition-all shadow-2xl shadow-cyan-500/30 flex items-center justify-center gap-3 group relative overflow-hidden"
-            >
-              <span className="relative z-10">Explore Portfolio</span>
-              <i className="fas fa-chevron-right group-hover:translate-x-1 transition-transform relative z-10"></i>
-              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-            </motion.a>
-            <motion.a 
-              href="#contact" 
-              whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', scale: 1.05 }}
-              className="px-10 py-5 glass text-white font-bold rounded-2xl transition-all border border-white/10 flex items-center justify-center gap-3"
-            >
-              Get In Touch
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/projects"
+                className="px-10 py-5 bg-gradient-primary text-white font-extrabold rounded-2xl transition-all shadow-2xl shadow-emerald-500/30 flex items-center justify-center gap-3 group relative overflow-hidden"
+              >
+                <span className="relative z-10">Explore Portfolio</span>
+                <i className="fas fa-chevron-right group-hover:translate-x-1 transition-transform relative z-10"></i>
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', scale: 1.05 }}>
+              <Link
+                to="/contact"
+                className="px-10 py-5 glass text-white font-bold rounded-2xl transition-all border border-white/10 flex items-center justify-center gap-3"
+              >
+                Get In Touch
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
 
@@ -115,27 +117,27 @@ const Hero: React.FC = () => {
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 border-[1px] border-dashed border-cyan-500/20 rounded-full"
+              className="absolute inset-0 border-[1px] border-dashed border-emerald-500/20 rounded-full"
             />
             <motion.div 
               animate={{ rotate: -360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-12 border-[1px] border-indigo-500/10 rounded-full"
+              className="absolute inset-12 border-[1px] border-teal-500/10 rounded-full"
             />
             <motion.div 
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-24 bg-gradient-to-br from-cyan-500/5 to-transparent rounded-full blur-2xl"
+              className="absolute inset-24 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-full blur-2xl"
             />
             
             {/* Main Visual: stylized logo */}
-            <Logo className="w-56 h-56 md:w-96 md:h-96 relative z-10 drop-shadow-[0_0_50px_rgba(34,211,238,0.2)]" />
+            <Logo className="w-56 h-56 md:w-96 md:h-96 relative z-10 drop-shadow-[0_0_50px_rgba(16,185,129,0.2)]" />
             
             {/* Floating Tech Badges */}
             <motion.div 
               animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 right-0 glass px-5 py-2.5 rounded-2xl text-cyan-400 font-mono text-sm border-cyan-500/30 shadow-2xl backdrop-blur-xl"
+              className="absolute top-10 right-0 glass px-5 py-2.5 rounded-2xl text-emerald-400 font-mono text-sm border-emerald-500/30 shadow-2xl backdrop-blur-xl"
             >
               <i className="fa-brands fa-python mr-2"></i>
               Python
@@ -143,7 +145,7 @@ const Hero: React.FC = () => {
             <motion.div 
               animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-20 -left-4 glass px-5 py-2.5 rounded-2xl text-indigo-400 font-mono text-sm border-indigo-500/30 shadow-2xl backdrop-blur-xl"
+              className="absolute bottom-20 -left-4 glass px-5 py-2.5 rounded-2xl text-teal-400 font-mono text-sm border-teal-500/30 shadow-2xl backdrop-blur-xl"
             >
               <i className="fa-solid fa-bolt mr-2"></i>
               FastAPI
@@ -151,7 +153,7 @@ const Hero: React.FC = () => {
             <motion.div 
               animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute top-1/2 -right-10 w-2 h-2 bg-cyan-500 rounded-full blur-[2px]"
+              className="absolute top-1/2 -right-10 w-2 h-2 bg-emerald-500 rounded-full blur-[2px]"
             />
           </div>
         </motion.div>
@@ -170,7 +172,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="w-5 h-8 border-2 border-slate-800 rounded-full flex justify-center p-1"
         >
-          <motion.div className="w-1 h-2 bg-cyan-500 rounded-full" />
+          <motion.div className="w-1 h-2 bg-emerald-500 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

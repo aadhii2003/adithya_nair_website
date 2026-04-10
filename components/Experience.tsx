@@ -21,7 +21,7 @@ const Experience: React.FC = () => {
               
               <div className="glass p-8 md:p-12 rounded-[2rem] border-white/5 flex flex-col md:flex-row gap-8 hover:bg-slate-900/40 transition-all">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/20">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white text-2xl shadow-lg shadow-emerald-500/20">
                     <i className="fas fa-briefcase"></i>
                   </div>
                 </div>
@@ -29,7 +29,7 @@ const Experience: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                     <h3 className="text-2xl font-bold text-white">{exp.role}</h3>
-                    <span className="text-sm font-mono font-bold text-blue-400 bg-blue-500/10 px-4 py-1 rounded-full border border-blue-500/20">{exp.duration}</span>
+                    <span className="text-sm font-mono font-bold text-emerald-400 bg-emerald-500/10 px-4 py-1 rounded-full border border-emerald-500/20">{exp.duration}</span>
                   </div>
                   <div className="text-lg text-slate-300 font-semibold">{exp.company}</div>
                   <p className="text-slate-400 leading-relaxed max-w-2xl">

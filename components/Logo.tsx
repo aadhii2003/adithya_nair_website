@@ -8,11 +8,11 @@ const Logo: React.FC<{ className?: string }> = ({ className = "w-12 h-12" }) => 
       className={`relative flex items-center justify-center ${className}`}
       whileHover={{ scale: 1.05 }}
     >
-      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
         <defs>
           <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#22d3ee', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#6366f1', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#10b981', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
           </linearGradient>
         </defs>
         <motion.path

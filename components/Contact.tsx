@@ -21,13 +21,13 @@ const Contact: React.FC = () => {
                 { icon: 'fa-map-marker-alt', label: 'Location', value: 'Alappuzha, Kerala, India', href: null }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-6 group">
-                  <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-blue-400 text-xl group-hover:bg-blue-600 group-hover:text-white transition-all shadow-xl border-white/5">
+                  <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-emerald-400 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-xl border-white/5">
                     <i className={`fas ${item.icon}`}></i>
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{item.label}</div>
                     {item.href ? (
-                      <a href={item.href} className="text-white font-semibold text-lg hover:text-blue-400 transition-colors">{item.value}</a>
+                      <a href={item.href} className="text-white font-semibold text-lg hover:text-emerald-400 transition-colors">{item.value}</a>
                     ) : (
                       <span className="text-white font-semibold text-lg">{item.value}</span>
                     )}
@@ -46,28 +46,28 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="glass p-10 rounded-[2.5rem] border-white/5 shadow-2xl relative">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-600/10 rounded-full blur-[80px]"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-600/10 rounded-full blur-[80px]"></div>
             
             <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
-                  <input type="text" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="John Doe" />
+                  <input type="text" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
-                  <input type="email" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="john@example.com" />
+                  <input type="email" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="john@example.com" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Subject</label>
-                <input type="text" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Project Inquiry" />
+                <input type="text" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="Project Inquiry" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Message</label>
-                <textarea rows={5} className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none" placeholder="How can I help you?"></textarea>
+                <textarea rows={5} className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-emerald-500 transition-colors resize-none" placeholder="How can I help you?"></textarea>
               </div>
-              <button type="submit" className="w-full bg-gradient-primary py-5 rounded-2xl text-white font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-600/20">
+              <button type="submit" className="w-full bg-gradient-primary py-5 rounded-2xl text-white font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-emerald-600/20">
                 Send Message
               </button>
             </form>

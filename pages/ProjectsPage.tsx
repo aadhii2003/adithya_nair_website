@@ -13,7 +13,7 @@ const ProjectsPage: React.FC = () => {
                 <meta property="og:description" content="Real-world web applications built with Python, Flask, Django, and React" />
                 <link rel="canonical" href="https://adithyanair.dev/projects" />
             </Helmet>
-            <div className="pt-20">
+            <div className="pt-48 pb-20">
                 <Projects />
             </div>
         </>

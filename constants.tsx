@@ -1,60 +1,78 @@
+import { Project, Experience, Skill, Education } from './types';
+import jollynamesLogo from './assets/jollynameslogo.png';
+import dealOffLogo from './assets/deal_off_logo.png';
+import ringmeLogo from './assets/ringmeLogo.avif';
+import pickframesLogo from './assets/pickframes-logo.webp';
+import spinelLogo from './assets/spinel_logo.png';
 
-import { Project, Experience, Skill } from './types';
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'jollynames',
+    title: 'Jollynames.ai',
+    company: 'Personal Project',
+    description: 'AI-powered Name & Image Generation Platform using Gemini API.',
+    longDescription: 'Jollynames.ai is a cutting-edge AI platform that leverages Google Gemini API for creative name generation and DALL-E/Image API integration. Built with React for the frontend and a robust Flask/Bootstrap admin panel hosted on Hostinger.',
+    features: ['Gemini API Integration', 'AI Image Generation', 'Flask Admin Dashboard', 'Responsive Bootstrap UI'],
+    tags: ['React', 'Flask', 'Gemini AI', 'Hostinger'],
+    icon: 'fa-robot',
+    logo: jollynamesLogo,
+    color: 'from-blue-500 to-emerald-400',
+    link: 'https://jollynames.ai'
+
+  },
+  {
+    id: 'deal-off',
+    title: 'Deal Off',
+    company: 'Crudops Pvt Ltd',
+    description: 'High-performance offer management and subscription tracking system.',
+    longDescription: 'Deal Off is an enterprise-grade application for managing company subscriptions, offers, and user access. Using FastAPI, I built a high-performance backend serving thousands of requests with minimal latency.',
+    features: ['High-performance FastAPI Backend', 'Role-based Access Control', 'Subscription Management', 'Real-time Stats Dashboard'],
+    tags: ['FastAPI', 'Flutter Integration', 'Real-time'],
+    icon: 'fa-gift',
+    logo: dealOffLogo,
+    color: 'from-emerald-500 to-teal-600'
+
+  },
   {
     id: 'ringme',
     title: 'Ringme',
     company: 'Crudops Pvt Ltd',
-    description: 'QR-based Communication App. Built Flask-based admin panel and RESTful APIs for user, package, and feature management. Implemented signaling logic for audio, video, and chat communication via QR-based access.',
+    description: 'QR-based Communication App. Built Flask-based admin panel and RESTful APIs.',
+    longDescription: 'Ringme is a specialized communication platform that utilizes QR technology to facilitate secure and instant connections. I developed the robust Flask-based administrative infrastructure and designed the core RESTful API architecture for seamless user management and real-time signaling.',
+    features: ['QR-based authentication', 'Real-time signaling for WebRTC', 'Flask Admin Dashboard', 'RESTful API Design'],
     tags: ['Flask', 'REST API', 'WebRTC', 'QR Tech'],
     icon: 'fa-qrcode',
-    color: 'from-emerald-500 to-teal-600'
+    logo: ringmeLogo,
+    color: 'from-emerald-500 to-teal-600',
+    github: 'https://github.com/aadhii2003/ringme'
+
   },
   {
     id: 'pickframes',
     title: 'Pickframes',
     company: 'Dubai Client / Crudops',
-    description: 'E-commerce Platform. Developed full-stack ecommerce website with image customization features and responsive UI. Implemented checkout flow, payment integration, and admin dashboard.',
+    description: 'E-commerce Platform with image customization features and responsive UI.',
+    longDescription: 'Pickframes is a sophisticated e-commerce solution tailored for a Dubai-based client. The platform features an advanced image customization engine, allowing users to personalize products before purchase. I implemented the full-stack architecture, focusing on performance and cross-device responsiveness.',
+    features: ['Dynamic Image Customization', 'Secure Checkout Flow', 'Admin Inventory Management', 'Responsive Design'],
     tags: ['Flask', 'HTML5', 'CSS3', 'JS', 'E-commerce'],
     icon: 'fa-shopping-cart',
+    logo: pickframesLogo,
     color: 'from-teal-500 to-emerald-700'
+
   },
   {
     id: 'spinel',
     title: 'Spinel Aurora',
     company: 'Crudops Pvt Ltd',
-    description: 'Jewelry E-commerce App. Designed and deployed full platform using Flask and MySQL with AWS cloud hosting. Handled backend APIs and optimized performance.',
+    description: 'Jewelry E-commerce App using Flask and MySQL with AWS cloud hosting.',
+    longDescription: 'Spinel Aurora is a premium jewelry e-commerce platform. I architected the backend using Flask and MySQL, ensuring data integrity and high-speed query performance. The application is deployed on AWS, utilizing cloud infrastructure for maximum reliability.',
+    features: ['Cloud-native Deployment', 'Secure Transaction Handling', 'Advanced Product Filtering', 'Inventory Synchronization'],
     tags: ['Flask', 'MySQL', 'AWS', 'Optimization'],
     icon: 'fa-gem',
+    logo: spinelLogo,
     color: 'from-emerald-600 to-green-700'
-  },
-  {
-    id: 'picks',
-    title: 'Picks',
-    company: 'Crudops Pvt Ltd',
-    description: 'Blog App Backend. Built REST APIs using Flask for mobile blog application including authentication and content management.',
-    tags: ['Flask', 'RESTful API', 'Auth'],
-    icon: 'fa-blog',
-    color: 'from-green-500 to-emerald-600'
-  },
-  {
-    id: 'tcr',
-    title: 'TCR App',
-    company: 'Crudops Pvt Ltd',
-    description: 'Flutter + Firebase. Developed Streamlit-based admin panel connected with Firebase for real-time data updates and management.',
-    tags: ['Streamlit', 'Firebase', 'Flutter Integration'],
-    icon: 'fa-mobile-alt',
-    color: 'from-teal-400 to-emerald-500'
-  },
-  {
-    id: 'offer-app',
-    title: 'Offer Management App',
-    company: 'Crudops Pvt Ltd',
-    description: 'Flutter + FastAPI. Developed FastAPI backend and web-based admin panel to manage company subscriptions, offers, and user access. Implemented real-time offer updates.',
-    tags: ['FastAPI', 'Flutter', 'Real-time'],
-    icon: 'fa-gift',
-    color: 'from-emerald-500 to-teal-600'
+
   }
 ];
 
@@ -64,40 +82,68 @@ export const EXPERIENCES: Experience[] = [
     role: 'Junior Python Full Stack Developer',
     company: 'Crudops Pvt Ltd',
     duration: 'January 2025 – Present',
-    description: 'Developing and maintaining scalable web applications using Python, Django/Flask. Collaborating with cross-functional teams to implement features and optimize user experience.'
+    description: 'Developing and maintaining scalable web applications using Python, Django/Flask. Collaborating with cross-functional teams to implement features and optimize user experience.',
+    responsibilities: [
+      'Architecting RESTful APIs using Flask and FastAPI',
+      'Implementing real-time communication features with WebRTC',
+      'Managing PostgreSQL and MySQL databases for performance',
+      'Deploying applications on AWS and Hostinger VPS'
+    ]
   },
   {
     id: 'exp2',
     role: 'Python Full Stack Development Internship',
     company: 'Luminar Techno Lab',
     duration: 'May 2024 – November 2024',
-    description: 'Worked with a development team to build and enhance web applications. Utilized Python, Django, and front-end tools for efficient project delivery.'
+    description: 'Worked with a development team to build and enhance web applications. Utilized Python, Django, and front-end tools for efficient project delivery.',
+    responsibilities: [
+      'Assisted in designing database schemas',
+      'Developed frontend components using Bootstrap and JS',
+      'Participated in code reviews and agile methodologies'
+    ]
+  }
+];
+
+export const EDUCATION: Education[] = [
+  {
+    id: 'edu1',
+    degree: "BCA Graduate",
+    institution: "PVM College of Arts and Science",
+    duration: "2021 - 2024",
+    description: "Bachelor of Computer Applications - Focused on software engineering and application development cycles.",
+    icon: "fa-graduation-cap"
+  },
+  {
+    id: 'edu2',
+    degree: "Python Full Stack Intern",
+    institution: "Luminar Techno Lab",
+    duration: "2024",
+    description: "Intensive training in full-stack architecture, focusing on Python, React, and server-side logic.",
+    icon: "fa-code"
   }
 ];
 
 export const SKILLS: Skill[] = [
   // Backend
   { name: 'Python', category: 'Backend', icon: 'fa-brands fa-python' },
-  { name: 'Django', category: 'Backend', icon: 'fa-server' },
   { name: 'Flask', category: 'Backend', icon: 'fa-flask' },
+  { name: 'Django', category: 'Backend', icon: 'fa-server' },
   { name: 'FastAPI', category: 'Backend', icon: 'fa-bolt' },
-  { name: 'RESTful API', category: 'Backend', icon: 'fa-project-diagram' },
-  // Frontend
-  { name: 'HTML5', category: 'Frontend', icon: 'fa-brands fa-html5' },
-  { name: 'CSS3', category: 'Frontend', icon: 'fa-brands fa-css3-alt' },
-  { name: 'JavaScript', category: 'Frontend', icon: 'fa-brands fa-js' },
-  { name: 'Bootstrap', category: 'Frontend', icon: 'fa-brands fa-bootstrap' },
-  { name: 'React.js', category: 'Frontend', icon: 'fa-brands fa-react' },
+  { name: 'REST API', category: 'Backend', icon: 'fa-project-diagram' },
+  { name: 'Signaling', category: 'Backend', icon: 'fa-satellite-dish' },
   // Databases
-  { name: 'PostgreSQL', category: 'Databases', icon: 'fa-database' },
   { name: 'MySQL', category: 'Databases', icon: 'fa-database' },
+  { name: 'PostgreSQL', category: 'Databases', icon: 'fa-database' },
   { name: 'SQLite', category: 'Databases', icon: 'fa-database' },
-  // DevOps
-  { name: 'AWS (Basics)', category: 'DevOps', icon: 'fa-brands fa-aws' },
-  { name: 'Digital Ocean', category: 'DevOps', icon: 'fa-brands fa-digital-ocean' },
-  { name: 'VPS (Hostinger)', category: 'DevOps', icon: 'fa-hdd' },
-  { name: 'Deployment', category: 'DevOps', icon: 'fa-cloud-upload-alt' },
+  // Server
+  { name: 'AWS', category: 'DevOps', icon: 'fa-brands fa-aws' },
+  { name: 'Hostinger', category: 'DevOps', icon: 'fa-server' },
+  { name: 'DigitalOcean', category: 'DevOps', icon: 'fa-brands fa-digital-ocean' },
+  { name: 'Server Migrations', category: 'DevOps', icon: 'fa-exchange-alt' },
   // Tools
-  { name: 'Git & GitHub', category: 'Tools', icon: 'fa-brands fa-github' },
-  { name: 'Postman', category: 'Tools', icon: 'fa-paper-plane' }
+  { name: 'Git', category: 'Tools', icon: 'fa-brands fa-git' },
+  { name: 'Postman', category: 'Tools', icon: 'fa-paper-plane' },
+  { name: 'Termius', category: 'Tools', icon: 'fa-terminal' },
+  { name: 'Filezilla', category: 'Tools', icon: 'fa-file-upload' },
+  { name: 'Docker', category: 'Tools', icon: 'fa-brands fa-docker' }
 ];

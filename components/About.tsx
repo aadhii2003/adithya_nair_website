@@ -28,15 +28,18 @@ const About: React.FC = () => {
               </div>
 
               <p className="text-slate-400 text-lg leading-relaxed font-light">
-                I'm Adithya Nair, a passionate <span className="text-white font-medium">Full Stack Python Developer</span> based in Kerala. With a strong foundation in modern web technologies, I specialize in building highly scalable, maintainable, and visually stunning digital experiences.
+                I'm Adithya Nair, a visionary <span className="text-white font-medium">Full Stack Python Architect</span>. I bridge the gap between complex backend logic and immersive frontend interfaces, crafting digital solutions that are not just functional, but architectural masterpieces.
+              </p>
+              <p className="text-slate-400 text-lg leading-relaxed font-light">
+                 Specializing in high-performance Python ecosystems, I design systems that scale. From real-time signaling to intricate database schemas, I build the core of modern web technology.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
                 {[
                   { label: 'Experience', value: '1+ Year' },
-                  { label: 'Projects', value: '15+' },
-                  { label: 'Availability', value: 'Immediate' },
-                  { label: 'Role', value: 'Fullstack' }
+                  { label: 'Cloud Focus', value: 'AWS/DO' },
+                  { label: 'Arsenal', value: 'Python' },
+                  { label: 'Architecture', value: 'Fullstack' }
                 ].map((stat, idx) => (
                   <div key={idx} className="space-y-1">
                     <div className="text-2xl font-black text-white">{stat.value}</div>
@@ -46,32 +49,6 @@ const About: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="space-y-10"
-          >
-            <h3 className="text-xl font-bold text-white uppercase tracking-widest border-b border-white/10 pb-4">Education</h3>
-            <div className="space-y-8">
-              <div className="flex gap-6 group">
-                <div className="space-y-1">
-                  <h4 className="text-white font-bold">BCA Graduate</h4>
-                  <p className="text-slate-500 text-xs">PVM College of Arts and Science</p>
-                  <div className="text-emerald-500 font-mono text-sm pt-1">2021-24</div>
-                </div>
-              </div>
-              <div className="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5">
-                <div className="w-10 h-10 rounded-full bg-teal-500/10 flex items-center justify-center text-teal-400 flex-shrink-0"><i className="fas fa-briefcase"></i></div>
-                <div className="space-y-1">
-                  <h4 className="text-white font-bold">Python Full Stack Intern</h4>
-                  <p className="text-slate-500 text-xs">Luminar Techno Lab</p>
-                  <div className="text-teal-500 font-mono text-sm pt-1">2024</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

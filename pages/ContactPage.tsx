@@ -13,7 +13,7 @@ const ContactPage: React.FC = () => {
                 <meta property="og:description" content="Available for Python development projects and collaborations" />
                 <link rel="canonical" href="https://adithyanair.dev/contact" />
             </Helmet>
-            <div className="pt-20">
+            <div className="pt-48">
                 <Contact />
             </div>
         </>

@@ -19,10 +19,11 @@ const Navbar: React.FC = () => {
     { name: 'Skills', path: '/skills' },
     { name: 'Projects', path: '/projects' },
     { name: 'Experience', path: '/experience' },
+    { name: 'Education', path: '/education' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled ? 'py-4 glass' : 'py-8 bg-transparent'
+    <nav className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-500 ${scrolled ? 'py-4 glass' : 'py-8 bg-[#09090b]/80 backdrop-blur-lg border-b border-white/5'
       }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3 group">

@@ -13,7 +13,7 @@ const ExperiencePage: React.FC = () => {
                 <meta property="og:description" content="Professional journey as a Python Full Stack Developer" />
                 <link rel="canonical" href="https://adithyanair.dev/experience" />
             </Helmet>
-            <div className="pt-20">
+            <div className="pt-48">
                 <Experience />
             </div>
         </>

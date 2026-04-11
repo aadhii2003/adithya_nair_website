@@ -50,6 +50,23 @@ body {
     animation: rotate 20s linear infinite;
 }
 
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+.animate-scroll {
+    animation: scroll 40s linear infinite;
+}
+
+.pause-scroll:hover {
+    animation-play-state: paused;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
     display: none;

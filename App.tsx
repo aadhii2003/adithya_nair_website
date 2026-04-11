@@ -11,6 +11,9 @@ import ProjectsPage from './pages/ProjectsPage';
 import ExperiencePage from './pages/ExperiencePage';
 import ContactPage from './pages/ContactPage';
 
+import EducationPage from './pages/EducationPage';
+import ProjectDetailsPage from './pages/ProjectDetailsPage';
+
 const App: React.FC = () => {
   return (
     <HelmetProvider>
@@ -22,7 +25,9 @@ const App: React.FC = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/project/:id" element={<ProjectDetailsPage />} />
             <Route path="/experience" element={<ExperiencePage />} />
+            <Route path="/education" element={<EducationPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />

@@ -1,203 +1,85 @@
-
 import React from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { SKILLS } from '../constants';
 
-const SkillCard = ({ title, icon, color, children, className = "" }: any) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`relative glass rounded-[2rem] p-6 border-white/5 transition-colors group overflow-hidden h-full ${className}`}
-    >
-      <div style={{ transform: "translateZ(30px)" }} className="relative z-10 h-full flex flex-col">
-        <div className="flex items-center gap-4 mb-6">
-          <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center ${color} text-xl border border-white/10 shadow-inner group-hover:scale-110 transition-transform duration-500`}>
-            <i className={`fas ${icon}`}></i>
-          </div>
-          <h3 className="text-xl font-black text-white tracking-tight uppercase italic">{title}</h3>
-        </div>
-        <div className="flex-1">
-          {children}
-        </div>
-      </div>
-      
-      {/* Decorative Glow */}
-      <div className={`absolute -top-24 -right-24 w-64 h-64 opacity-10 blur-[100px] rounded-full transition-colors duration-500 ${color.replace('text-', 'bg-')}`}></div>
-      
-      {/* Mesh Pattern Overlay */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-    </motion.div>
-  );
-};
-
-const SkillItem = ({ name, icon }: { name: string; icon: string }) => (
-  <motion.div 
-    whileHover={{ x: 3 }}
-    className="flex flex-col gap-1.5 w-full"
-  >
-    <div className="flex items-center justify-between group/item">
-      <div className="flex items-center gap-2.5">
-        <i className={`${icon} text-slate-500 group-hover:text-emerald-400 text-sm transition-colors w-4 text-center`}></i>
-        <div className="flex-1 space-y-2">
-          <div className="flex justify-between items-center">
-            <span className="text-xs font-bold text-slate-400 group-hover:text-white transition-colors">{name}</span>
-            <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className={`h-1 w-2.5 rounded-full ${i <= 3 ? 'bg-emerald-500/40 shadow-[0_0_5px_rgba(16,185,129,0.3)]' : 'bg-white/5'}`}></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </motion.div>
-);
-
 const Skills: React.FC = () => {
-  return (
-    <section id="skills" className="relative py-32 overflow-hidden bg-[#09090b]">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-emerald-500/[0.03] pointer-events-none"></div>
+    const categories = ['Backend', 'Databases', 'DevOps', 'Tools'];
+    
+    const getCategoryIcon = (category: string) => {
+        switch(category) {
+            case 'Backend': return 'fa-shield-halved';
+            case 'Databases': return 'fa-database';
+            case 'DevOps': return 'fa-server';
+            case 'Tools': return 'fa-microchip';
+            default: return 'fa-code';
+        }
+    }
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-4 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-[0.3em]"
-          >
-            Capabilities
-          </motion.div>
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
-            Digital <span className="text-gradient">Arsenal.</span>
-          </h2>
-          <p className="text-slate-500 text-base max-w-xl font-light">
-            Expertise across the full stack, optimized for scalability and speed.
-          </p>
-        </div>
+    const getCategoryLabel = (cat: string) => {
+        if (cat === 'DevOps') return 'Server Ecosystem';
+        if (cat === 'Backend') return 'Core Systems';
+        return cat;
+    }
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Backend */}
-          <SkillCard
-            title="Backend"
-            icon="fa-code"
-            color="text-emerald-400"
-          >
-            <div className="space-y-4">
-              {SKILLS.filter(s => s.category === 'Backend').map(skill => (
-                <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />
-              ))}
-              <div className="pt-4 mt-2 border-t border-white/5 flex items-center justify-between">
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Core Focus</span>
-                <div className="flex gap-1.5">
-                  <i className="fa-brands fa-python text-emerald-500 text-xs"></i>
-                  <i className="fa-solid fa-bolt text-emerald-400 text-xs"></i>
+    return (
+        <section id="skills" className="py-32 relative overflow-hidden bg-[#09090b]">
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="flex flex-col items-center mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-black uppercase tracking-[0.4em] mb-6 shadow-2xl shadow-emerald-500/10"
+                    >
+                        Weaponry & Expertise
+                    </motion.div>
+                    <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter italic text-center leading-none">
+                        Digital <span className="text-gradient">Arsenal.</span>
+                    </h2>
                 </div>
-              </div>
-            </div>
-          </SkillCard>
 
-          {/* Frontend */}
-          <SkillCard
-            title="Frontend"
-            icon="fa-layer-group"
-            color="text-emerald-400"
-          >
-            <div className="space-y-4">
-              {SKILLS.filter(s => s.category === 'Frontend').map(skill => (
-                <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />
-              ))}
-            </div>
-          </SkillCard>
+                <div className="grid lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
+                    {categories.map((cat, idx) => (
+                        <motion.div
+                            key={cat}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: idx * 0.1 }}
+                            viewport={{ once: true }}
+                            className="glass p-10 rounded-[3.5rem] border-white/5 relative overflow-hidden group hover:bg-slate-900/40 transition-all duration-700"
+                        >
+                            <div className="absolute -top-20 -right-20 w-60 h-60 bg-emerald-500/5 rounded-full blur-[100px] group-hover:bg-emerald-500/10 transition-colors"></div>
+                            
+                            <div className="flex items-center gap-6 mb-10 relative z-10">
+                                <div className="w-16 h-16 rounded-3xl bg-white/5 flex items-center justify-center text-emerald-400 text-2xl border border-white/10 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-xl">
+                                    <i className={`fas ${getCategoryIcon(cat)}`}></i>
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-black text-white tracking-tight">
+                                        {getCategoryLabel(cat)}
+                                    </h3>
+                                    <div className="h-1 w-12 bg-emerald-500/50 rounded-full mt-1"></div>
+                                </div>
+                            </div>
 
-          {/* Data */}
-          <SkillCard
-            title="Data"
-            icon="fa-database"
-            color="text-emerald-400"
-          >
-            <div className="space-y-4">
-              {SKILLS.filter(s => s.category === 'Databases').map(skill => (
-                <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />
-              ))}
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 relative z-10">
+                                {SKILLS.filter(s => s.category === cat).map(skill => (
+                                    <div 
+                                        key={skill.name}
+                                        className="flex flex-col gap-3 p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-emerald-500/10 hover:border-emerald-500/20 transition-all duration-500 group/item"
+                                    >
+                                        <i className={`${skill.icon} text-lg text-slate-500 group-hover/item:text-emerald-400 transition-colors duration-500`}></i>
+                                        <span className="text-xs font-black uppercase tracking-widest text-slate-300 group-hover/item:text-white transition-colors">
+                                            {skill.name}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-          </SkillCard>
-
-          {/* DevOps */}
-          <SkillCard
-            title="DevOps"
-            icon="fa-cloud"
-            color="text-emerald-400"
-          >
-            <div className="grid grid-cols-1 gap-4">
-              {SKILLS.filter(s => s.category === 'DevOps').map(skill => (
-                <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />
-              ))}
-            </div>
-          </SkillCard>
-
-          {/* Tools */}
-          <SkillCard
-            title="Tools"
-            icon="fa-tools"
-            color="text-emerald-400"
-          >
-            <div className="space-y-4">
-              {SKILLS.filter(s => s.category === 'Tools').map(skill => (
-                <SkillItem key={skill.name} name={skill.name} icon={skill.icon} />
-              ))}
-            </div>
-          </SkillCard>
-
-          {/* Languages */}
-          <SkillCard
-            title="Communication"
-            icon="fa-language"
-            color="text-emerald-400"
-          >
-            <div className="space-y-6 flex flex-col justify-center h-full pb-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-bold text-slate-300">English</span>
-                <span className="text-[10px] font-bold text-emerald-400/70 uppercase">Professional</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-bold text-slate-300">Malayalam</span>
-                <span className="text-[10px] font-bold text-emerald-400/70 uppercase">Native</span>
-              </div>
-            </div>
-          </SkillCard>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Skills;

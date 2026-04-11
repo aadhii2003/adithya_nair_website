@@ -13,7 +13,7 @@ const SkillsPage: React.FC = () => {
                 <meta property="og:description" content="Comprehensive full stack development skills in Python, JavaScript, and modern frameworks" />
                 <link rel="canonical" href="https://adithyanair.dev/skills" />
             </Helmet>
-            <div className="pt-20">
+            <div className="pt-48">
                 <Skills />
             </div>
         </>

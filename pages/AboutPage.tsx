@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
                 <meta property="og:description" content="BCA graduate with expertise in Python, Django, Flask, and modern web technologies" />
                 <link rel="canonical" href="https://adithyanair.dev/about" />
             </Helmet>
-            <div className="pt-20">
+            <div className="pt-48">
                 <About />
             </div>
         </>
